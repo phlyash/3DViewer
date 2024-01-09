@@ -3,10 +3,12 @@ package com.cgvsu;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Objects;
 
 public class Simple3DViewer extends Application {
@@ -21,7 +23,11 @@ public class Simple3DViewer extends Application {
         viewport.prefWidthProperty().bind(scene.widthProperty());
         viewport.prefHeightProperty().bind(scene.heightProperty());
 
-        stage.setTitle("Simple3DViewer");
+        InputStream iconStream = getClass().getResourceAsStream("/icon/Ivan.jpg");
+        Image image = new Image(iconStream);
+        stage.getIcons().add(image);
+
+        stage.setTitle("Начал бы пораньше...");
         stage.setScene(scene);
         stage.show();
     }
